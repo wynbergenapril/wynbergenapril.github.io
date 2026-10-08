@@ -26,9 +26,10 @@
                             document.getElementById('preloader').style.display = 'none';
                             document.getElementById('preloader').remove();
                             // Run project
-                            Wick.WickFile.fromWickFile(blob, project => {
-                                project.inject(document.getElementById('wick-canvas-container'));
-                            });
+                          Wick.WickFile.fromWickFile(blob, project => {
+window.project = project;
+project.inject(document.getElementById("wick-canvas-container"));
+});
                         })
                         .catch((e) => {
                             console.error('Could not download Wick project.')
